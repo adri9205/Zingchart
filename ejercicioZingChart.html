@@ -1,0 +1,83 @@
+<html>
+<head>
+<script src="http://cdn.zingchart.com/zingchart.min.js"></script>
+<script>
+ var myChart = {
+    "type": "line",
+    "title": {
+        "text": "Compras por dia"
+    },
+    "legend": {},
+
+    "plot": {
+        "valueBox": {
+            "type": "all",
+            "placement": "top"
+        }
+    },
+    
+    "scaleX": {
+        "values": ["Lunes","Martes","Miercoles","Jueves","Viernes"]
+    },
+    "scaleY": {
+        "label": {
+            "text": "Compras"
+        },
+        "values": "0:20:5"
+    },
+    "series": [
+        {
+            "text": "Fernando",
+            "values": [6,5,5,8,2]
+			,
+			"valueBox":{
+                "type":"max",
+                "text":"%t compro %v productos el %kv."
+            },
+			"tooltip":{ 
+        "text":"%t compro %v el %k." 
+        }
+        },
+        {
+            "text": "Liliana",
+            "values": [9,9,12,5,10],
+			"valueBox":{
+                "type":"max",
+                "text":"%t compro %v productos el %kv."
+            },
+			"tooltip":{ 
+        "text":"%t compro %v el %k." 
+        }
+        },
+        {
+            "text": "Carlos",
+            "values": [3,4,5,10,15],
+			"valueBox":{
+                "type":"max",
+                "text":"%t compro %v productos el %kv."
+            },
+			"tooltip":{ 
+        "text":"%t compro %v el %k." 
+        }
+        }
+    ]
+};
+ 
+window.onload=function(){
+  zingchart.render({
+    id:'chartDiv1',
+    data:myChart,
+    height:300,
+    width:500
+  });
+ 
+};
+</script>
+</head>
+<body>
+
+  <h2>Individual Charts</h2>
+  <h3>Line Chart</h3>
+  <div id='chartDiv1'></div>
+</body>
+</html>
