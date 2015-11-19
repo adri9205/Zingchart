@@ -1,0 +1,134 @@
+<html>
+<head>
+<script src="http://cdn.zingchart.com/zingchart.min.js"></script>
+<script>
+ var myChart = {
+    "type": "line",
+    "title": {
+        "text": "Compras por dia"
+    },
+    "legend": {},
+
+    "plot": {
+        "valueBox": {
+            "type": "all",
+            "placement": "top"
+        }
+    },
+    
+    "scaleX": {
+        "values": ["Lunes","Martes","Miercoles","Jueves","Viernes"]
+    },
+    "scaleY": {
+        "label": {
+            "text": "Compras"
+        },
+        "values": "0:20:5"
+    },
+    "series": [
+        {
+            "text": "Fernando",
+            "values": [6,5,5,8,2]
+        },
+        {
+            "text": "Liliana",
+            "values": [9,9,12,5,10]
+        },
+        {
+            "text": "Carlos",
+            "values": [3,4,5,10,15]
+        }
+    ]
+};
+  var myChart2 = {
+    "type":"bullet",
+    "series":[
+      {"values":[14,29,18,20,34], "goals":[15,30,21,5,30]}
+    ]
+  };
+  var myChart3 = {
+    "type":"pie",
+    "series":[
+      {"values":[15]}, 
+      {"values":[30]}, 
+      {"values":[34]}
+    ]
+  };
+  var myDashboard = {
+    "graphset":[
+      {
+        "type":"line",
+        "height":"30%",
+        "width":"90%",
+        "x":"5%",
+        "y":"5%",
+        "series":[
+          {"values":[11,21,19,54,6,19,19,59]}
+        ]
+      },
+      {
+        "type":"funnel",
+        "height":"55%",
+        "width":"40%",
+        "x":"5%",
+        "y":"40%",
+        "series":[
+          {"values":[50]}, 
+          {"values":[15]}, 
+          {"values":[5]}, 
+          {"values":[3]}
+        ]
+      },
+      {
+        "type":"radar",
+        "height":"55%",
+        "width":"45%",
+        "x":"50%",
+        "y":"40%",
+        "series":[
+          {"values":[20,87,59,85,54]}
+        ]
+      }
+    ]
+  };
+window.onload=function(){
+  zingchart.render({
+    id:'chartDiv1',
+    data:myChart,
+    height:300,
+    width:500
+  });
+  zingchart.render({
+    id:'chartDiv2',
+    data:myChart2,
+    height:300,
+    width:500       
+  });
+  zingchart.render({
+    id:'chartDiv3',
+    data:myChart3,
+    height:300,
+    width:500
+  });
+  zingchart.render({
+    id:'dashboardDiv',
+    data:myDashboard,
+    height:500,
+    width:700
+  });
+};
+</script>
+</head>
+<body>
+
+  <h2>Individual Charts</h2>
+  <h3>Line Chart</h3>
+  <div id='chartDiv1'></div>
+  <h3>Bullet Chart</h3>
+  <div id='chartDiv2'></div>
+  <h3>Pie Chart</h3>
+  <div id='chartDiv3'></div>
+  <h2>Dashboard Chart</h2>
+   <div id='dashboardDiv'></div>
+</body>
+</html>
