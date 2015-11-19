@@ -40,13 +40,13 @@
         }
     ]
 };
-  var myChart2 = {
+  var barChart = {
     "type":"bullet",
     "series":[
       {"values":[14,29,18,20,34], "goals":[15,30,21,5,30]}
     ]
   };
-  var myChart3 = {
+  var pieChart1 = {
     "type":"pie",
     "series":[
       {"values":[15]}, 
@@ -54,6 +54,37 @@
       {"values":[34]}
     ]
   };
+  var pieChartData = {
+		"type":"pie3d",
+		"series":[
+		{
+			"values":[5],
+			"text":"Value 1" 
+		},
+		{
+			"values":[8],
+			"text":"Value 2" 
+		},
+		{
+			"values":[22],
+			"text":"Value 3" 
+		},
+		{
+			"values":[16],
+			"text":"Value 4" 
+		},
+		{
+			"values":[12],
+			"text":"Value 5" 
+		}
+		]
+	};
+	var wordChartData = {
+		"type":"wordcloud",
+		"options":{
+			"text":"Giese Ruiz, Javier Alberto; Pamanes Guevara, Jose Salvador; Cavazos Hernandez, Andres Gerardo; Reyna Rivas, Luis Alberto; Meza Flores, Antonio Carlos; Miguel Menchaca, Antonio; Melendez Hernandez, Francia Sugey; Padilla Gonzalez, Jose Luis; Gonzalez Zuniga, Juan Lorenzo; Cortes Soto, Adriana; Baumann Gomez, Roland Alexander; Gonzalez Cardenas, Benjamin Salvador; Guzman Araiza, Javier; Lozano Maciel, Monica Esperanza; Garza Conde, Fernando; Galvan Villarreal, Eliezer Andres; Lopez De Leon, Andres Gerardo; Flores Serrato, Ari; Diaz Martinez, Ivan; Kovacevich Galvan, Jose de Jesus; Lozano Marchand, Adrian; Viejo Gonzalez, Manuel; Cruz Elosua, Andres"
+		}
+	};
   var myDashboard = {
     "graphset":[
       {
@@ -92,30 +123,42 @@
     ]
   };
 window.onload=function(){
-  zingchart.render({
-    id:'chartDiv1',
-    data:myChart,
-    height:300,
-    width:500
-  });
-  zingchart.render({
-    id:'chartDiv2',
-    data:myChart2,
-    height:300,
-    width:500       
-  });
-  zingchart.render({
-    id:'chartDiv3',
-    data:myChart3,
-    height:300,
-    width:500
-  });
-  zingchart.render({
-    id:'dashboardDiv',
-    data:myDashboard,
-    height:500,
-    width:700
-  });
+	zingchart.render({
+    	id:'chartDiv1',
+    	data:myChart,
+    	height:300,
+    	width:500
+  	});
+  	zingchart.render({
+    	id:'barChartDiv',
+   		data:barChart,
+    	height:300,
+    	width:500       
+  	});
+  	zingchart.render({
+    	id:'pieChart1',
+    	data:pieChart1,
+    	height:300,
+    	width:500
+ 	 });
+  	zingchart.render({ 
+		id:'pieChartDiv',
+		data:pieChartData,
+		height:400,
+		width:600
+  	});
+  	zingchart.render({ 
+		id:'wordCloudChartDiv',
+		data:wordChartData,
+		height:400,
+		width:600
+	});
+  	zingchart.render({
+    	id:'dashboardDiv',
+    	data:myDashboard,
+    	height:500,
+    	width:700
+  	});
 };
 </script>
 </head>
@@ -125,9 +168,12 @@ window.onload=function(){
   <h3>Line Chart</h3>
   <div id='chartDiv1'></div>
   <h3>Bullet Chart</h3>
-  <div id='chartDiv2'></div>
+  <div id='barChartDiv'></div>
   <h3>Pie Chart</h3>
-  <div id='chartDiv3'></div>
+  <div id='pieChart1'></div>
+  <div id ='pieChartDiv'></div>
+  <h3>Word Chart</h3>
+  <div id ='wordCloudChartDiv'></div>
   <h2>Dashboard Chart</h2>
    <div id='dashboardDiv'></div>
 </body>
